@@ -1,0 +1,37 @@
+//LED를 이용, "SOS"의 모스부호를 LED로 출력하는 프로그램
+//각각의 카운터 설정
+int counter;
+int counter2;
+int counter3;
+
+void setup()
+{
+  pinMode(13, OUTPUT);				//출력핀 지정
+}
+
+void loop()
+{
+  for (counter = 0; counter < 3; ++counter)		//3번 반복
+ {
+    digitalWrite(13, HIGH);
+    delay(200); // Wait for 200 millisecond(s)		//0.2초간 LED점등
+    digitalWrite(13, LOW);
+    delay(300); // Wait for 300 millisecond(s)		//0.3초간 LED소등
+  }
+  for (counter2 = 0; counter2 < 3; ++counter2)		//3번 반복
+{
+    digitalWrite(13, HIGH);
+    delay(600); // Wait for 600 millisecond(s)		//0.6초간 LED점등
+    digitalWrite(13, LOW);
+    delay(300); // Wait for 300 millisecond(s)		//0.3초간 LED소등
+  }
+  for (counter3 = 0; counter3 < 3; ++counter3)		//3번 반복
+{
+    digitalWrite(13, HIGH);
+    delay(200); // Wait for 200 millisecond(s)		//0.2초간 LED점등
+    digitalWrite(13, LOW);
+    delay(300); // Wait for 300 millisecond(s)		//0.3초간 LED소등
+  }	
+  digitalWrite(13, LOW);
+  delay(2000); // Wait for 2000 millisecond(s)		//인터벌 2초
+}
