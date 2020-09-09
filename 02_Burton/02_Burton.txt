@@ -1,0 +1,30 @@
+int led = 0;
+
+int sw = 0;
+
+int index = 0;
+
+void setup()
+{
+  pinMode(4, INPUT);
+  pinMode(2, OUTPUT);
+}
+
+void loop()
+{
+  index = 0;
+  sw = digitalRead(4);
+  if (sw == HIGH) {
+    while (digitalRead(4) == HIGH) {
+      delay(5); // Wait for 5 millisecond(s)
+    }
+    index = (index + 1);
+    led += index;
+    if (led % 2 != 0) {
+      digitalWrite(2, HIGH);
+    }
+    if (led % 2 == 0) {
+      digitalWrite(2, LOW);
+    }
+  }
+}
