@@ -1,0 +1,55 @@
+#include <Servo.h>
+
+int ON = 0;
+int i = 0;
+Servo servo_6;
+
+void setup()
+{
+  pinMode(4, INPUT);
+  Serial.begin(9600);
+
+  servo_6.attach(6);
+
+  pinMode(2, OUTPUT);
+}
+
+void loop()
+{
+  ON = digitalRead(4);
+  if (ON == HIGH) {
+    i = (i + 1);
+    Serial.println(i);
+    if (i <= 30) {
+      i = 30;
+      servo_6.write(i);
+      delay(500); // Wait for 500 millisecond(s)
+    }
+    if (i > 30 && i < 60) {
+      i = 60;
+      servo_6.write(i);
+      delay(500); // Wait for 500 millisecond(s)
+    }
+    if (i > 60 && i < 90) {
+      i = 90;
+      servo_6.write(i);
+      delay(500); // Wait for 500 millisecond(s)
+    }
+    if (i > 90 && i < 120) {
+      i = 120;
+      servo_6.write(i);
+      delay(500); // Wait for 500 millisecond(s)
+    }
+    if (i > 120 && i < 150) {
+      i = 150;
+      servo_6.write(i);
+      digitalWrite(2, HIGH);
+      delay(2000); // Wait for 2000 millisecond(s)
+      i = 30;
+      servo_6.write(i);
+      digitalWrite(2, LOW);
+    }
+  } else {
+    servo_6.write(i);
+  }
+}
